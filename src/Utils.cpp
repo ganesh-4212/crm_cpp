@@ -14,8 +14,9 @@ time_t GetDate(int year, int month, int day)
     return std::mktime(&tm);
 }
 
-string DateToString(time_t date)
+string DateToString(time_t &date)
 {
+    printf("%p\n",&date);
     struct tm *tmInfo = localtime(&date);
     ostringstream outStream;
     outStream << "[ Year: " << tmInfo->tm_year << ", Month: " << tmInfo->tm_mon << ", Day: " << tmInfo->tm_mday << " ]";
